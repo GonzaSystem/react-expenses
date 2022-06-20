@@ -2,15 +2,9 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-    const [enteredTitle, setTitle] = useState('');
-    const [enteredAmount, setAmount] = useState('');
-    const [enteredDate, setDate] = useState('');
-
-    // const [userInput, setUserInput] = useState({
-    //     enteredTitle: "",
-    //     enteredAmount: "",
-    //     enteredDate: "",
-    // });
+    const [enteredTitle, setTitle] = useState("");
+    const [enteredAmount, setAmount] = useState("");
+    const [enteredDate, setDate] = useState("");
 
     const titleChangeHandler = (e) => {
         // setUserInput((prevState) => { // This is the safer way when updating the state based on the previous state (ie: a counter, etc)
@@ -41,9 +35,9 @@ const ExpenseForm = (props) => {
 
         props.onAddExpense(expenseData);
 
-        setTitle('');
-        setAmount('');
-        setDate('');
+        setTitle("");
+        setAmount("");
+        setDate("");
     };
 
     return (
@@ -79,6 +73,9 @@ const ExpenseForm = (props) => {
                 </div>
             </div>
             <div className="new-expense__actions">
+                <button type="button" onClick={props.onCancel}>
+                    Cancel
+                </button>
                 <button type="submit">Add Expense</button>
             </div>
         </form>
